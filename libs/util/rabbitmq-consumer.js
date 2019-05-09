@@ -34,7 +34,10 @@ class RabbitmqConsumer {
             abstractConsumer.bindings.forEach((binding) => {
                 this.channel.bindQueue(q.queue, this.rabbitmqConsumerInfo.exchangeName, binding);
             });
-            this.channel.consume(q.queue, abstractConsumer.consume);
+            this.channel.consume(q.queue, (message) => {
+                abstractConsumer.consume(message);
+                this.channel.ack(message);
+            });
         });
         
     }
