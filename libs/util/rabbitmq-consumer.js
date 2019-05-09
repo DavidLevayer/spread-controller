@@ -27,7 +27,7 @@ class RabbitmqConsumer {
      * @param {AbstractConsumer} abstractConsumer 
      */
     setConsumer(abstractConsumer) {
-        this.channel.assertQueue(abstractConsumer.queueName, { durable: false, exclusive: true }, (err, q) => {
+        this.channel.assertQueue(abstractConsumer.queueName, { durable: false }, (err, q) => {
             if(err) {
                 throw err;
             }                    
