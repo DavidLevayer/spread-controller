@@ -1,6 +1,6 @@
 'use strict';
 
-const AbstractConsumer = require('./abstract-consumer');
+const AbstractConsumer = require('spread-common/libs/core/consumer/abstract-consumer');
 
 class ResourceConsumer extends AbstractConsumer {
 
